@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Clicker Heroes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="myForm">
+    <h1>Create account</h1>
+    <label>
+      Nickn:
+      <input type="text" id="nickname" name="nickname">
+      <span class="error" id="nicknameError"></span>
+    </label>
+    <label>
+      Name:
+      <input type="text" id="name" name="name">
+      <span class="error" id="nameError"></span>
+    </label>
+    <label>
+      Email:
+      <input type="email" id="email" name="email">
+      <span class="error" id="emailError"></span>
+    </label>
+    <input type="submit" value="Create user">
+  </form>
+  <div id="game">
+    <div id="game-header">
+      <p id="username">User:</p>
+      <p>Your coins: <span id="score">0</span></p>
+      <p id="level">Level 1</p>
+    </div>
+    <div id="enemy">
+      <img src="./images/1.png" alt="Goblin" width="300" height="250">
+    </div>
+    <button id="click-button">Click me!</button>
+  </div>
+    <div id="win-message">
+        <div>You win!</div>
+        <div>Your score: 25</div>
+    </div>
+  <script src="script.js"></script>
+</body>
+</html>
