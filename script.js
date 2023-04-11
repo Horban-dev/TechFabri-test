@@ -120,6 +120,7 @@ const form = document.getElementById("myForm");
           healthElement = document.getElementById('health'); 
           healthElement.innerText = ` ${enemies[level].health}/${enemies[level].maxHealth}`;
           levelElement.innerText = `Level ${level}`;
+          alert("Congratulations on completing the level! Moving to the next level!");
         }
       }
     });
