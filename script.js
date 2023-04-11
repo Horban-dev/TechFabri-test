@@ -58,14 +58,8 @@ const form = document.getElementById("myForm");
       };
       localStorage.setItem("userData", JSON.stringify(data));
     }
-    // get value from ls and push into #username id
-    let userData = localStorage.getItem("userData");
-    let username = null;
-    if (userData !== null) {
-        userData = JSON.parse(userData);
-        username = userData.name;
-    }
-    document.getElementById("username").textContent = username;
+   
+  
 
     const enemies = {
       1: {
@@ -111,7 +105,7 @@ const form = document.getElementById("myForm");
     
     enemyElement.addEventListener('click', () => {
       enemies[level].health--;
-      healthElement.innerText = `${enemies[level].health}/${enemies[level].maxHealth}`;
+      healthElement.innerText = `HP ${enemies[level].health}/${enemies[level].maxHealth}`;
       score++;
       clicks++;
       scoreElement.innerText = score;
@@ -122,16 +116,16 @@ const form = document.getElementById("myForm");
           document.getElementById("game").style.display = "none";
           document.getElementById("win-message").style.display = "block";
         } else {
-          enemyElement.innerHTML = `<img src="${enemies[level].image}" alt="${enemies[level].name}" width="300" height="250"><p id="health"></p>`;
+          enemyElement.innerHTML = `<img src="${enemies[level].image}" alt="${enemies[level].name}"><p id="health"></p>`;
           healthElement = document.getElementById('health'); 
-          healthElement.innerText = `${enemies[level].health}/${enemies[level].maxHealth}`;
+          healthElement.innerText = ` ${enemies[level].health}/${enemies[level].maxHealth}`;
           levelElement.innerText = `Level ${level}`;
         }
       }
     });
     
     levelElement.innerText = `Level ${level}`;
-    healthElement.innerText = `${enemies[level].health}/${enemies[level].maxHealth}`;
+    healthElement.innerText = `HP ${enemies[level].health}/${enemies[level].maxHealth}`;
     
     
     
