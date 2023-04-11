@@ -9,15 +9,11 @@ form {
 
 label {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  width: 70%;
+  justify-content: end;
 }
-
-label span {
-  margin-right: 20px;
+.regField {
+  background-color: black;
+  margin-right: 50px;
 }
 h1 {
   background-color: black;
@@ -39,6 +35,7 @@ input[type="submit"] {
   color: black;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 input[type="submit"]:hover {
@@ -46,9 +43,10 @@ input[type="submit"]:hover {
 }
 
 .error {
+  background-color: black;
   color: red;
-  font-size: 14px;
-  margin-top: 5px;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 body {
@@ -66,18 +64,18 @@ button {
   font-size: 18px;
   margin-top: 20px;
 }
+img {
+  width: 200px;
+  height: 250px;
+}
 #enemy {
-  margin-top: 70px;
+  margin: 100px auto;
+  width: 200px;
+  height: 200px;
 }
 
-#click-button {
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  background-color: white;
-}
-#click-button:active {
-  background-color: red;
+#enemy:hover {
+  cursor: url("./images/sword.png"), auto;
 }
 #game {
   display: none;
@@ -100,5 +98,3 @@ button {
   padding: 20px;
   border: 2px solid #000;
 }
-
-/* background-image: url("https://gamerwall.pro/uploads/posts/2022-05/1651827592_2-gamerwall-pro-p-zombi-apokalipsis-v-realnom-mire-krasivo-o-2.jpg"); */

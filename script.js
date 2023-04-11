@@ -41,7 +41,10 @@ const form = document.getElementById("myForm");
         document.getElementById("game").style.display = "block";
       }
     });
-
+    nickname.addEventListener("input", function(event) {
+      document.getElementById("username").textContent = event.target.value;
+    });
+    
     function isValidEmail(email) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
@@ -65,54 +68,74 @@ const form = document.getElementById("myForm");
     document.getElementById("username").textContent = username;
 
     const enemies = {
-        1: {
-          name: 'Goblin',
-          image: './images/1.png'
-        },
-        2: {
-          name: 'Skeleton zombie',
-          image: './images/2.png'
-        },
-        3: {
-          name: 'Mummy',
-          image: './images/3.png'
-        },
-        4: {
-          name: 'Zombie',
-          image: './images/4.png'
-        },
-        5: {
-          name: 'Orc',
-          image: './images/5.png'
-        }
-      };
-      
-      let level = 1;
-      let score = 0;
-      let clicks = 0;
-      let targetClicks = 5;
-      
-      const scoreElement = document.getElementById('score');
-      const enemyElement = document.getElementById('enemy');
-      const levelElement = document.getElementById('level');
-      const buttonElement = document.getElementById('click-button');
-      
-      buttonElement.addEventListener('click', () => {
-        score++;
-        clicks++;
-        scoreElement.innerText = score;
-        if (clicks >= targetClicks) {
-          level++;
-          clicks = 0;
-          if (score === 25) {
-            document.getElementById("game").style.display = "none";
-            document.getElementById("win-message").style.display = "block";
-          }
-          enemyElement.innerHTML = `<img src="${enemies[level].image}" alt="${enemies[level].name}" width="300" height="250">`;
+      1: {
+        name: 'Goblin',
+        image: './images/1.png',
+        maxHealth: 10,
+        health: 10
+      },
+      2: {
+        name: 'Skeleton zombie',
+        image: './images/2.png',
+        maxHealth: 5,
+        health: 5
+      },
+      3: {
+        name: 'Mummy',
+        image: './images/3.png',
+        maxHealth: 7,
+        health: 7
+      },
+      4: {
+        name: 'Zombie',
+        image: './images/4.png',
+        maxHealth: 8,
+        health: 8
+      },
+      5: {
+        name: 'Orc',
+        image: './images/5.png',
+        maxHealth: 12,
+        health: 12
+      }
+    };
+    
+    let level = 1;
+    let score = 0;
+    let clicks = 0;
+    
+    const scoreElement = document.getElementById('score');
+    const enemyElement = document.getElementById('enemy');
+    const levelElement = document.getElementById('level');
+    let healthElement = document.getElementById('health');
+    
+    enemyElement.addEventListener('click', () => {
+      enemies[level].health--;
+      healthElement.innerText = `${enemies[level].health}/${enemies[level].maxHealth}`;
+      score++;
+      clicks++;
+      scoreElement.innerText = score;
+      if (enemies[level].health === 0) {
+        level++;
+        clicks = 0;
+        if (level > 5) {
+          document.getElementById("game").style.display = "none";
+          document.getElementById("win-message").style.display = "block";
+        } else {
+          enemyElement.innerHTML = `<img src="${enemies[level].image}" alt="${enemies[level].name}" width="300" height="250"><p id="health"></p>`;
+          healthElement = document.getElementById('health'); 
+          healthElement.innerText = `${enemies[level].health}/${enemies[level].maxHealth}`;
           levelElement.innerText = `Level ${level}`;
         }
-      });
-      
-      levelElement.innerText = `Level ${level}`;
+      }
+    });
+    
+    levelElement.innerText = `Level ${level}`;
+    healthElement.innerText = `${enemies[level].health}/${enemies[level].maxHealth}`;
+    
+    
+    
+    
+    
       
       

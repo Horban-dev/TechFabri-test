@@ -9,36 +9,36 @@
   <form id="myForm">
     <h1>Create account</h1>
     <label>
-      Nickn:
+      <span class="regField">Nick:</span>
       <input type="text" id="nickname" name="nickname">
+    </label>
       <span class="error" id="nicknameError"></span>
-    </label>
     <label>
-      Name:
+      <span class="regField">Name:</span>
       <input type="text" id="name" name="name">
+    </label>
       <span class="error" id="nameError"></span>
-    </label>
     <label>
-      Email:
+      <span class="regField">Email:</span>
       <input type="email" id="email" name="email">
-      <span class="error" id="emailError"></span>
     </label>
+    <span class="error" id="emailError"></span>
     <input type="submit" value="Create user">
   </form>
   <div id="game">
     <div id="game-header">
       <p id="username">User:</p>
       <p>Your coins: <span id="score">0</span></p>
-      <p id="level">Level 1</p>
+      <p id="level"></p>
+      <p id="health">HP 10/10</p>
     </div>
     <div id="enemy">
-      <img src="./images/1.png" alt="Goblin" width="300" height="250">
+      <img src="./images/1.png" alt="Goblin">
     </div>
-    <button id="click-button">Click me!</button>
   </div>
     <div id="win-message">
         <div>You win!</div>
-        <div>Your score: 25</div>
+        <div>Your score: 42</div>
     </div>
   <script src="script.js"></script>
 </body>
